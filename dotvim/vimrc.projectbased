@@ -1,0 +1,55 @@
+" Vim setup based on suggestions at
+" http://www.alexeyshmalko.com/2014/using-vim-as-c-cpp-ide/
+" This is a project specific .vimrc template"
+
+""" Indentation rules for the project (according to project style guide)
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set noexpandtab
+
+" For python and probably java and others, replacing tabs with spaces
+" may be a good idea. For that, comment out 'set noexpandtab' above
+" and uncomment the following: 
+"set expandtab 
+
+
+""" Highlight column to mark the max. width you want to have for wrapping
+""" Just a visual clue to show how much space left
+set colorcolumn=90
+highlight ColorColumn ctermbg=23
+
+""" File type detection (according to Alexey the following is needed
+""" when writing c code because vim assumes c++ by default). It may
+""" conflict with Vundle and YCM setup in vimrc ??
+"augroup project
+"    autocmd!
+"    autocmd BufRead,BufNewFile *.h,*.c set filetype=c.doxygen
+"augroup END
+
+""" For vim's gf command to open the file under the cursor, include paths
+""" other than the default locations can be added as follows
+"let &path.="src/include,/usr/include/AL,"
+
+""" Also, for java file names, the following converts '.' to '/'
+"set includeexpr=substitute(v:fname,'\\.','/','g')
+
+""" Setup the build system (by default :make executes make in the
+""" current directory
+"set makeprg=make\ -C\ ../build\ -j9
+
+""" You may want to go further and bind this command to one of keys. For example:
+""" (! mark prevents vim from jumping to location of first error found)
+"nnoremap <F4> :make!<cr>
+
+""" After building, you can map the program name to run to a key
+"nnoremap <F5> :!my_program_name<cr>
+
+""" Here, you can setup some version control system or just use :! command to
+""" access the shell and execute arbitrary shell commands, in this case
+""" version control specific commands
+" =========================================
+
+" Display line numbers
+set number
+

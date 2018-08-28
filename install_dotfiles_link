@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+#
+# Install dot files by copying links in dotfiles dir to home directory
+
+currentdir=$(basename "$(pwd)")
+dotfiles_path=~/share/dotfiles
+
+if [ "dotfiles" != "$currentdir" ]; then
+    if [ -d "$dotfiles_path" ]; then
+        cd "$dotfiles_path" || exit 2
+    else
+        echo "Cannot find dotfiles directory!" >&2
+        exit 1
+    fi
+fi
+
+for df in $(find -P . -maxdepth 1 -name '.*' -type l -printf "%f\n"); do
+    [ -f "$HOME/$df" ] && [ ! -L "$HOME/$df" ] && mv "$HOME/$df"{,.orig}
+    cp -df "$df" "$HOME/$df"
+done
+
+# Copy dotvim to ~/.vim
+if [ ! -d "$HOME/.vim" ]; then
+    mkdir "$HOME/.vim" || exit 3
+fi
+cp -rf dotvim/* ~/.vim
+
+exit 0
+

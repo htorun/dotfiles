@@ -1,0 +1,14 @@
+[core]
+	excludesfile = ~/.gitignore_global
+[user]
+	name = Hami Torun
+	email = htorun@e-fabrika.net
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+	ls = log --pretty=format:\"%C(yellow)%h %Creset%s%Cblue [%an]\" --decorate
+    ll = log --pretty=format:\"%C(yellow)%h %Creset%ad%Cgreen%d %Creset%s%Cblue [%an]\" --decorate --date=short --graph
+	la = log --pretty=format:\"%C(yellow)%h%Cgreen%d %Creset%s%Cblue [%an]\" --decorate --numstat --graph

@@ -1,0 +1,51 @@
+# This file controls the behaviour of line input editing for
+# programs that use the GNU Readline library.  Existing
+# programs include FTP, Bash, and GDB.
+#
+# You can re-read the inputrc file with C-x C-r.
+# Lines beginning with '#' are comments.
+#
+# First, include any system-wide bindings and variable
+# assignments from /etc/inputrc
+$include /etc/inputrc
+
+# Use Vi, not Emacs, style editing
+set editing-mode vi
+
+# Use Emacs, not Vi, style editing
+#set editing-mode emacs
+
+# Show all completions as soon as I press tab, even if there's more than one
+set show-all-if-ambiguous on
+
+# Ignore case
+#set completion-ignore-case on
+
+# on menu-complete, first display the common prefix, then cycle through the 
+# options when hitting TAB
+set menu-complete-display-prefix on
+
+$if mode=vi
+###########################################################
+# Keymaps for when we're in command mode (e.g., after hitting ESC)
+#set keymap vi-command
+
+# Insert the arguments from the last command
+#"p": "i !!*\r"
+
+###########################################################
+# Keymaps for when we're in insert (i.e., typing stuff in) mode
+set keymap vi-insert
+
+# Pressing tab will list all completions & select the first one. Pressing it 
+# again will cycle through available completions.
+TAB: menu-complete
+# Shift-TAB cycles completions backward
+"\e[Z": menu-complete-backward
+
+# Use "jk" for ESC in insert mode
+"jk": "\e"
+
+# Clear terminal window with C-L (which works in vi-command mode)
+"\C-l": "clear\n"
+$endif

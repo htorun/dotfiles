@@ -1,0 +1,8 @@
+# editor temporary and/or backup files
+*~
+*.sw?
+
+# backup files in general
+*.bak
+*.old
+*.orig
