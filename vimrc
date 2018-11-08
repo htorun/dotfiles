@@ -21,7 +21,7 @@ set backspace=2
 set mouse=n
 
 " Set path for file/library search
-set path=.,**,/usr/include/**
+set path=.,**,/usr/include/**,/usr/local/include/**
 
 " By default, Vim uses cpp filetype for .h files. Make it use c.doxygen
 " (c for filetype and doxygen subtype for doxygen documentation highlighting)
@@ -109,6 +109,9 @@ if s:vundle_installed
     if "development" ==# $ENVIRONMENT
         " YouCompleteMe auto complete plugin for C
         Plugin 'Valloric/YouCompleteMe'
+         
+        "TabNine auto complete plugin for ALL languages
+        "Plugin 'zxqfl/tabnine-vim'
 
         " c.vim plugin syntax highlighting,
         " inserting code snippets and comments
@@ -125,7 +128,7 @@ if s:vundle_installed
         Plugin 'vim-airline/vim-airline'
 
         " Asynchronous lint engine
-        Plugin 'w0rp/ale'
+        "Plugin 'w0rp/ale'
 
         " Javascript syntax highlighting
         Plugin 'pangloss/vim-javascript'
@@ -163,9 +166,12 @@ let g:ycm_global_ycm_extra_conf="~/.vim/ycm_extra_conf.py"
 " (if not installed with rustup to it's default location)
 "let g:ycm_rust_src_path="~/software/rust-1.12/src"
 
+" Use python3
+let g:ycm_server_python_interpreter = 'python3'
+
 " Python executable name that will be searched in PATH for
 " semantic completion using Jedi for Python 2 or 3
-let g:ycm_python_binary_path = 'python'
+let g:ycm_python_binary_path = 'python3'
 
 "---- c.vim settings ---------------------------------------
 
@@ -192,7 +198,12 @@ let g:jsx_ext_required = 0
 
 " uncomment the following lines to lint only when saved
 let g:ale_lint_on_save = 1
-let g:ale_lint_on_text_changed = 0
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_completion_enabled = 0
+let g:ale_echo_msg_error_str = 'ALE Error'
+let g:ale_echo_msg_info_str = 'ALE Info'
+let g:ale_echo_msg_warning_str = 'ALE Warning'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
 "---- neoformat code formatter settings --------------------
 
@@ -262,10 +273,12 @@ set colorcolumn=80
 highlight ColorColumn ctermbg=240
 
 " Highlight unnecessary whitespace
-augroup BadWhitespace
+highlight default TrailingSpace ctermbg=3
+augroup HiglightTrailingSpace
     autocmd!
-    autocmd BufNewFile,BufRead * match BadWhitespace /\s\+$/
-    autocmd ColorScheme * highlight BadWhitespace ctermbg=0
+    autocmd BufEnter,BufNewFile,BufRead,ColorScheme *
+                \ match TrailingSpace /\s\+\_$/ |
+                \ highlight TrailingSpace ctermbg=3
 augroup END
 
 " Display line numbers
