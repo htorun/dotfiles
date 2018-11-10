@@ -42,7 +42,8 @@ SOURCE_EXTENSIONS = [ '.cpp', '.cxx', '.cc', '.c', '.m', '.mm' ]
 flags = [
 '-Wall',
 '-Wextra',
-'-Werror',
+#'-Werror', # treat warnings as errors
+'-Wno-unused-parameter', # ignore unused parameter warnings
 #'-Wno-attributes',
 #'-fexceptions', # gcc default when not specified: enabled for C, disabled for C++
 # THIS IS IMPORTANT! Without the '-x' flag, Clang won't know which language to
