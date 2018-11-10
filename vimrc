@@ -106,12 +106,16 @@ if s:vundle_installed
     " Zenburn color scheme
     Plugin 'jnurmine/Zenburn'
 
+    " Lean and mean status/tabline for vim that's light as air
+    Plugin 'vim-airline/vim-airline'
+    Plugin 'vim-airline/vim-airline-themes'
+
     if "development" ==# $ENVIRONMENT
+        " vim-fugitive Git wrapper
+        Plugin 'tpope/vim-fugitive'
+
         " YouCompleteMe auto complete plugin for C
         Plugin 'Valloric/YouCompleteMe'
-         
-        "TabNine auto complete plugin for ALL languages
-        "Plugin 'zxqfl/tabnine-vim'
 
         " c.vim plugin syntax highlighting,
         " inserting code snippets and comments
@@ -124,11 +128,8 @@ if s:vundle_installed
         " Go language support
         Plugin 'fatih/vim-go'
 
-        " Lean and mean status/tabline for vim that's light as air
-        Plugin 'vim-airline/vim-airline'
-
         " Asynchronous lint engine
-        "Plugin 'w0rp/ale'
+        Plugin 'w0rp/ale'
 
         " Javascript syntax highlighting
         Plugin 'pangloss/vim-javascript'
@@ -141,6 +142,9 @@ if s:vundle_installed
 
         " Code formatter (uses installed formatters like prettier)
         Plugin 'sbdchd/neoformat'
+    else " If $ENVIRONMENT is NOT 'development'
+        "TabNine auto complete plugin for ALL languages
+        Plugin 'zxqfl/tabnine-vim'
     endif
 
     "<<< PUT PLUGINS TO INSTALL BEFORE THIS <<<
@@ -173,6 +177,12 @@ let g:ycm_server_python_interpreter = 'python3'
 " semantic completion using Jedi for Python 2 or 3
 let g:ycm_python_binary_path = 'python3'
 
+" Autoclose preview window after leaving the insert mode
+let g:ycm_autoclose_preview_window_after_insertion=1
+
+" Always populate vim's location list with diagnostics
+let g:ycm_always_populate_location_list = 1
+
 "---- c.vim settings ---------------------------------------
 
 " change leader from '\' to something easier to type
@@ -199,18 +209,23 @@ let g:jsx_ext_required = 0
 " uncomment the following lines to lint only when saved
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 'never'
+
 let g:ale_completion_enabled = 0
 let g:ale_echo_msg_error_str = 'ALE Error'
 let g:ale_echo_msg_info_str = 'ALE Info'
 let g:ale_echo_msg_warning_str = 'ALE Warning'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_echo_delay = 500 " Default is 10 ms
+
+" Disable for c. Let YouCompleteMe do the linting
+let g:ale_linters = {'c': [], 'cpp': []}
 
 "---- neoformat code formatter settings --------------------
 
 " apply style to javascript files when saved
 "augroup neoformatAutocmds
 "    " First, clear the group then define autocmds
-"    autocmd! 
+"    autocmd!
 "    autocmd BufWritePre *.js Neoformat
 "augroup END
 
@@ -233,6 +248,15 @@ let g:UltiSnipsListSnippets="<c-l>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsEditSplit="vertical"
+
+"---- vim-airline settings -----------------------------------
+"
+" Previous theme was 'dark'. Other alternatives I may try:
+" 'deus', 'distinguished', 'solarized', 'hybrid', 'fairyfloss'.
+let g:airline_theme = 'distinguished'
+
+" YouCompleteMe diagnostics integration (error/warninig count)
+let g:airline#extensions#ycm#enabled = 1
 
 "== User Interface =======================================
 
