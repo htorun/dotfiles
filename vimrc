@@ -178,10 +178,13 @@ let g:ycm_server_python_interpreter = 'python3'
 let g:ycm_python_binary_path = 'python3'
 
 " Autoclose preview window after leaving the insert mode
-let g:ycm_autoclose_preview_window_after_insertion=1
+"let g:ycm_autoclose_preview_window_after_insertion=1
 
 " Always populate vim's location list with diagnostics
 let g:ycm_always_populate_location_list = 1
+
+" Add <Enter> to the keys that selects a completion from the list
+let g:ycm_key_list_select_completion = ['<TAB>', '<Down>', '<Enter>']
 
 "---- c.vim settings ---------------------------------------
 
