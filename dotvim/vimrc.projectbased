@@ -16,8 +16,8 @@ set noexpandtab
 
 """ Highlight column to mark the max. width you want to have for wrapping
 """ Just a visual clue to show how much space left
-set colorcolumn=90
-highlight ColorColumn ctermbg=23
+set colorcolumn=80
+highlight ColorColumn ctermbg=240
 
 """ File type detection (according to Alexey the following is needed
 """ when writing c code because vim assumes c++ by default). It may
