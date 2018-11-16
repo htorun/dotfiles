@@ -56,8 +56,8 @@ unlet s:localnpmbinpath
 "== Vundle Plugin Manager Setup ==========================
 let s:vundle_path = $HOME . "/.vim/bundle/Vundle.vim"
 
-"---- Function MyCheckInstallVundle ------------------------
-function! MyCheckInstallVundle()
+"---- Function MyInstallVundle ------------------------
+function! MyInstallVundle()
     let l:v_autoload_path = s:vundle_path .  "/autoload/vundle.vim"
     if filereadable(l:v_autoload_path)
         return 1    " installed: true (1)
@@ -85,7 +85,7 @@ function! MyCheckInstallVundle()
 endfunction
 "---- Setup ------------------------------------------------
 
-let s:vundle_installed = MyCheckInstallVundle()
+let s:vundle_installed = MyInstallVundle()
 if s:vundle_installed
     "set nocompatible              " be iMproved, required (already set)
     filetype off                  " required
@@ -244,13 +244,6 @@ augroup prettierAutocmds
     autocmd FileType javascript setlocal
             \ formatprg=prettier\ --single-quote\ --trailing-comma\ es5
 augroup END
-
-"---- UltiSnips settings -----------------------------------
-let g:UltiSnipsExpandTrigger="<c-b>"
-let g:UltiSnipsListSnippets="<c-l>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-let g:UltiSnipsEditSplit="vertical"
 
 "---- vim-airline settings -----------------------------------
 "
