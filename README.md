@@ -13,6 +13,11 @@ directory assume `<dotfiles dir` to be `$HOME/share/dotfiles`.
 ```
        cp -d <dotfiles dir>/.vimrc $HOME/
 ```
+    Otherwise, create links manually using `ln -s`:
+```
+       cd ~
+       ln -s <dotfiles dir>/.vimrc $HOME/
+```
 
     Otherwise, create links manually using `ln -s`:
 
