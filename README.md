@@ -13,17 +13,10 @@ directory assume `<dotfiles dir` to be `$HOME/share/dotfiles`.
 ```
        cp -d <dotfiles dir>/.vimrc $HOME/
 ```
-    Otherwise, create links manually using `ln -s`:
+   Otherwise, create links manually using `ln -s`:
 ```
        cd ~
-       ln -s <dotfiles dir>/.vimrc $HOME/
-```
-
-    Otherwise, create links manually using `ln -s`:
-
-```
-       cd ~
-       ln -s <dotfiles dir>/.vimrc $HOME/
+       ln -s <dotfiles dir>/.vimrc .
 ```
 
   3. Copy and rename directories starting with 'dot' in 'dotfiles' to the home
@@ -36,7 +29,7 @@ directory assume `<dotfiles dir` to be `$HOME/share/dotfiles`.
 
 If `<dotfiles dir>` is not `$HOME/share/dotfiles`, edit the script `install_dotfiles_link` and modify `dotfile_path` variable accordingly.
 
-Run install_dotfiles_link:
+Run `install_dotfiles_link`:
 ```
     cd <dotfiles dir>
     bash install_dotfiles_link
