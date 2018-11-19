@@ -3,7 +3,7 @@
 #                                                       #
 # Based on default .bashrc that comes with Ubuntu 17.10 #
 #                                                       #
-# Hami Torun <hamitorun -at- gmail.com>                 #
+# Hami Torun <hamitorun@e-fabrika.net>                  #
 #########################################################
 
 # ~/.bashrc: executed by bash(1) for non-login shells.
@@ -141,13 +141,8 @@ my_functions=~/share/scripts/bash_my_functions
 my_aliases=~/share/dotfiles/bash_aliases
 
 if [ -f "$pm_path" ]; then
-    # Only source multi-line prompt script when this is an interactive shell
-    case "$-" in
-        *i*)
-            # shellcheck source=/dev/null
-            source "$pm_path"
-            ;;
-    esac
+  # shellcheck source=/dev/null
+  source "$pm_path"
 fi
 unset pm_path
 
