@@ -2,7 +2,7 @@
 	excludesfile = ~/.gitignore_global
 [user]
 	name = Hami Torun
-	email = htorun@e-fabrika.net
+	email = hamitorun@e-fabrika.net
 [alias]
 	co = checkout
 	br = branch
@@ -12,3 +12,5 @@
 	ls = log --pretty=format:\"%C(yellow)%h %Creset%s%Cblue [%an]\" --decorate
     ll = log --pretty=format:\"%C(yellow)%h %Creset%ad%Cgreen%d %Creset%s%Cblue [%an]\" --decorate --date=short --graph
 	la = log --pretty=format:\"%C(yellow)%h%Cgreen%d %Creset%s%Cblue [%an]\" --decorate --numstat --graph
+[commit]
+	gpgSign = 
