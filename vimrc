@@ -256,7 +256,7 @@ let g:airline#extensions#ycm#enabled = 1
 
 "== User Interface =======================================
 
-" Higlight cursor line
+" Highlight cursor line
 set cursorline
 
 " Show line, column info and % in file
@@ -294,7 +294,7 @@ highlight ColorColumn ctermbg=240
 
 " Highlight unnecessary whitespace
 highlight default TrailingSpace ctermbg=3
-augroup HiglightTrailingSpace
+augroup HighlightTrailingSpace
     autocmd!
     autocmd BufEnter,BufNewFile,BufRead,ColorScheme *.*
                 \ match TrailingSpace /\s\+\_$/ |
