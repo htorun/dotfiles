@@ -113,6 +113,9 @@ if s:vundle_installed
     Plugin 'vim-airline/vim-airline'
     Plugin 'vim-airline/vim-airline-themes'
 
+    " Search and load local vimrc files (asks before loading for security)
+    Plugin 'embear/vim-localvimrc'
+
     if "development" ==# $ENVIRONMENT
         " vim-fugitive Git wrapper
         Plugin 'tpope/vim-fugitive'
@@ -256,6 +259,11 @@ let g:airline_theme = 'distinguished'
 
 " YouCompleteMe diagnostics integration (error/warninig count)
 let g:airline#extensions#ycm#enabled = 1
+
+"---- vim-localvimrc settings --------------------------------
+
+" Do not source local vimrc file in sandbox (mainly to be able to set makeprg)
+let g:localvimrc_sandbox = 0
 
 "== User Interface =======================================
 
