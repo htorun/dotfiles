@@ -40,10 +40,13 @@ set hidden
 set lazyredraw
 
 " Netrw file browser settings
-let g:netrw_banner=0            " disable banner
-"let g:netrw_browse_split=4      " open in prior window
-"let g:netrw_altv=1              " open splits to the right
-let g:netrw_liststyle=3         " tree view
+let g:netrw_banner=0                " disable banner
+"let g:netrw_browse_split=4          " open in prior window
+"let g:netrw_altv=1                  " open splits to the right
+let g:netrw_liststyle=3             " tree view
+let g:netrw_usetab=1                " enable <C-Tab> Shrink/Expand
+let g:netrw_wiw=2                   " window width when shrinked
+let g:netrw_list_hide='.*\.sw.$'    " hiding list (hide vim swap files etc.)
 
 " add node_modules/.bin to $PATH if exists
 " (search from current dir upwards)
@@ -432,6 +435,13 @@ nnoremap ,U gUiW
 " In normal mode, increment the value under cursor (changing from <C-A>
 " because tmux uses it.
 nnoremap <C-B> <C-A>
+
+" In norma mode, shrink/expand netrw explorer window
+" (g:netrw_usetab must be set)
+nmap <unique> <F2> <Plug>NetrwShrink
+
+" In normal mode, open/close netrw Left Explore window
+nmap <unique> <F3> :32Lexplore<CR>
 
 "== Coding Style and Formatting ==========================
 
