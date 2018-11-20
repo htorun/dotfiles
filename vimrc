@@ -296,7 +296,7 @@ highlight ColorColumn ctermbg=240
 highlight default TrailingSpace ctermbg=3
 augroup HiglightTrailingSpace
     autocmd!
-    autocmd BufEnter,BufNewFile,BufRead,ColorScheme *
+    autocmd BufEnter,BufNewFile,BufRead,ColorScheme *.*
                 \ match TrailingSpace /\s\+\_$/ |
                 \ highlight TrailingSpace ctermbg=3
 augroup END
