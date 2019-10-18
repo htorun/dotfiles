@@ -1,5 +1,4 @@
 "== Initializations and Behaviour ========================
-
 " Be improved, not vi compatible
 " (should come before anything else)
 set nocompatible
@@ -86,8 +85,8 @@ function! MyInstallVundle()
     echo "Vundle install successful"
     return 1    " installed: true (1)
 endfunction
-"---- Setup ------------------------------------------------
 
+"---- Setup ------------------------------------------------
 let s:vundle_installed = MyInstallVundle()
 if s:vundle_installed
     "set nocompatible              " be iMproved, required (already set)
@@ -169,9 +168,7 @@ if s:vundle_installed
 endif
 
 "== Plugins setup ========================================
-
 "---- YouCompleteMe settings -------------------------------
-
 " Set the global .ycm_extra_conf.py file location
 let g:ycm_global_ycm_extra_conf="~/.vim/ycm_extra_conf.py"
 
@@ -196,28 +193,23 @@ let g:ycm_always_populate_location_list = 1
 let g:ycm_key_list_select_completion = ['<TAB>', '<Down>', '<Enter>']
 
 "---- c.vim settings ---------------------------------------
-
 " change leader from '\' to something easier to type
 let g:C_MapLeader = ','
 
 "---- solarized settings -----------------------------------
-
 " use 256 colors instead of 16
 " (if not using Vim terminal profile)
 "let g:solarized_termcolors=256
 
 "---- vim-javascript settings ------------------------------
-
 " add support for Flow and its types
 let g:javascript_plugin_flow = 1
 
 "---- vim-jsx settings -------------------------------------
-
 " vim-jsx: do not require .jsx extension
 let g:jsx_ext_required = 0
 
 "---- ale async linting engine settings --------------------
-
 " uncomment the following lines to lint only when saved
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 'never'
@@ -233,7 +225,6 @@ let g:ale_echo_delay = 500 " Default is 10 ms
 let g:ale_linters = {'c': [], 'cpp': []}
 
 "---- neoformat code formatter settings --------------------
-
 " apply style to javascript files when saved
 "augroup neoformatAutocmds
 "    " First, clear the group then define autocmds
@@ -246,7 +237,6 @@ let g:ale_linters = {'c': [], 'cpp': []}
 let g:neoformat_try_formatprg = 1
 
 "---- prettier settings ------------------------------------
-
 " set formatprg with prettier options
 augroup prettierAutocmds
     autocmd!
@@ -264,7 +254,6 @@ let g:airline_theme = 'distinguished'
 let g:airline#extensions#ycm#enabled = 1
 
 "---- vim-localvimrc settings --------------------------------
-
 " Do not source local vimrc file in sandbox (mainly to be able to set makeprg)
 let g:localvimrc_sandbox = 0
 
@@ -413,7 +402,6 @@ function! MyFoldText()
 endfunction
 
 "== Key Bindings and mappings ============================
-
 " Set timeout in milliseconds (default = 1000). Effects mappings
 set timeoutlen=800
 
@@ -470,7 +458,6 @@ nmap <unique> <F2> <Plug>NetrwShrink
 nmap <unique> <F3> :32Lexplore<CR>
 
 "== Coding Style and Formatting ==========================
-
 " General tab and indentation rules
 set tabstop=4   " default is 8 and too much for my taste
 set softtabstop=4
