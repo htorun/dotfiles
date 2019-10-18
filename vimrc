@@ -134,6 +134,9 @@ if s:vundle_installed
         " Go language support
         Plugin 'fatih/vim-go'
 
+        " Nim language support
+        Plugin 'zah/nim.vim'
+
         " Asynchronous lint engine
         Plugin 'w0rp/ale'
 
@@ -265,8 +268,20 @@ let g:airline#extensions#ycm#enabled = 1
 " Do not source local vimrc file in sandbox (mainly to be able to set makeprg)
 let g:localvimrc_sandbox = 0
 
-"== User Interface =======================================
+"---- nim.vim settings ---------------------------------------
+fun! JumpToDef()
+    if exists("*GotoDefinition_" . &filetype)
+        call GotoDefinition_{&filetype}()
+    else
+        exe "norm! \<C-]>"
+    endif
+endf
 
+" Jump to tag
+nn <M-g> :call JumpToDef()<cr>
+"ino <M-g> <esc>:call JumpToDef()<cr>i
+
+"== User Interface =======================================
 " Highlight cursor line
 set cursorline
 
