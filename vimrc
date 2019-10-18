@@ -324,7 +324,9 @@ if has('gui_running')
 
   syntax enable
 
-  if s:sol_installed && s:vundle_installed
+  if $VIMCOLORSCHEME !=# ""
+      colorscheme $VIMCOLORSCHEME
+  elseif s:sol_installed && s:vundle_installed
       " Use Solarized color scheme in GUI mode (gvim).
       " Requires Solarized color scheme plugin.
       colorscheme solarized
@@ -335,8 +337,9 @@ else
 " Terminal mode settings
 
   syntax enable
-
-  if s:sol_installed && s:vundle_installed
+  if $VIMCOLORSCHEME !=# ""
+      colorscheme $VIMCOLORSCHEME
+  elseif s:sol_installed && s:vundle_installed
       " Use Solarized color scheme
       " Requires Solarized color scheme plugin.
       colorscheme solarized
